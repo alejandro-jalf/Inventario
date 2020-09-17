@@ -21,11 +21,11 @@
             <div class="row">
                 <div class="col-auto">
                     <label class="">Folio</label>
-                    <input type="text" class="form-control mb-2" id="Folio" placeholder="Folio" @keyup.enter="">
+                    <input type="text" class="form-control mb-2" id="Folio" placeholder="Folio" @keyup.enter="setFolio()">
                 </div>
                 <div class="col-md">
                     <label class="" for="Almacen">Almacen</label>
-                    <input type="text" class="form-control mutted mb-2" id="Almacen" placeholder="Almacen">
+                    <input type="text" class="form-control mutted mb-2" id="Almacen" placeholder="Almacen" :disabled="folioCreated">
                 </div>
             </div>
             <div class="row">
@@ -33,33 +33,33 @@
                     <div class="row">
                         <div class="col">
                             <label class="sr-only" for="Caja">Caja</label>
-                            <input type="text" class="form-control mb-2" id="Caja" placeholder="Caja">
+                            <input type="text" class="form-control mb-2" id="Caja" placeholder="Caja" :disabled="folioCreated">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <label class="sr-only" for="Cajero">Cajero</label>
-                            <input type="text" class="form-control mb-2" id="Cajero" placeholder="Cajero">
+                            <input type="text" class="form-control mb-2" id="Cajero" placeholder="Cajero" :disabled="folioCreated">
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <label class="sr-only" for="Informacion">Informacion</label>
-                    <input type="text" class="form-control mutted mb-2" id="Informacion" placeholder="Informacion">
+                    <input type="text" class="form-control mutted mb-2" id="Informacion" placeholder="Informacion" disabled>
                 </div>
                 <div class="col-md-6">
                     <div class="row" style="border: 1px solid #b6b6b6;">
                         <div class="col-sm">
                             <label class="" for="Compra">Compra</label>
-                            <input type="text" class="form-control mb-2" id="Compra" placeholder="Compra">
+                            <input type="text" class="form-control mb-2" id="Compra" placeholder="Compra" :disabled="folioCreated">
                         </div>
                         <div class="col-sm">
                             <label class="" for="Venta">Venta</label>
-                            <input type="text" class="form-control mb-2" id="Venta" placeholder="Venta">
+                            <input type="text" class="form-control mb-2" id="Venta" placeholder="Venta" :disabled="folioCreated">
                         </div>
                         <div class="col-sm">
                             <label class="" for="Existencia">Existencia</label>
-                            <input type="text" class="form-control mb-2" id="Existencia" placeholder="Existencia">
+                            <input type="text" class="form-control mb-2" id="Existencia" placeholder="Existencia" :disabled="folioCreated">
                         </div>
                     </div>
                 </div>

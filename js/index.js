@@ -7,6 +7,7 @@ var app = new Vue({
         mdescription: "algo",
         mcajas: "",
         mpiezas: "",
+        folioCreated: false,
         registers: [
             {consecutivo: 0, codigo: 213213, description: "ewr", cajas: 23, piezas: "0.00"},
             {consecutivo: 1, codigo: 213213, description: "ewr", cajas: 23, piezas: "0.00"},
@@ -28,6 +29,9 @@ var app = new Vue({
         ]
     },
     methods: {
+        setFolio: function() {
+            this.folioCreated = true;
+        },
         setSelectedRow: function(row) {
             this.rowSelect = row;
             $(`#${row}tr`).focus();
