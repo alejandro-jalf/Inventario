@@ -1,7 +1,40 @@
+body{
+    padding-bottom: 70px;
+}
+
+footer{
+    z-index: 3;
+}
+
 .selected{
     background: #d4dadd;
 }
 
 table tbody tr{
     cursor: pointer;
+}
+
+.container-table{
+    overflow: auto;
+}
+
+.container-table table{
+    min-width: 600px;
+}
+
+@media screen and (max-width: 493px) {
+    .col-auto{
+        width: 100%;
+    }
+    .col-auto button{
+        margin-left: 10px;
+        width: 40px;
+    }
+    .btnclean{
+        float: inline-end;
+    }
+    .btnadd{
+        position: absolute;
+        right: 50px;
+    }
 }
