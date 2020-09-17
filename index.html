@@ -67,23 +67,23 @@
         </div>
 
         <div class="form-row align-items-center first">
-            <div class="col-lg">
+            <div class="col-lg-2">
                 <label class="" for="codigo">Articulo</label>
                 <input type="text" class="form-control mb-2" id="codigo" placeholder="Articulo" v-model="mcodigo" @keyup.enter="enterInput('cajas')" @keyup.esc="escape()" @keyup.right="moveInput('cajas')" @keyup.left="moveInput('add')">
             </div>
-            <div class="col-lg">
+            <div class="col-lg-5">
                 <label class="" for="name">Descripcion</label>
-                <input type="text" class="form-control mutted mb-2" id="name" placeholder="Descripcion" v-model="mdescription"  @keyup.enter="enterInput('cajas')" disabled>
+                <input type="text" class="form-control mutted mb-2" id="name" placeholder="Descripcion" v-model="mdescription"  @keyup.enter="enterInput('cajas')">
             </div>
-            <div class="col-lg">
+            <div class="col-lg-2">
                 <label class="" for="cajas">uCompra</label>
                 <input type="text" class="form-control mb-2" id="cajas" placeholder="uCompra" v-model="mcajas" @keyup.enter="enterInput('piezas')" @keyup.esc="escape()" @keyup.right="moveInput('piezas')" @keyup.left="moveInput('codigo')">
             </div>
-            <div class="col-lg">
+            <div class="col-lg-2">
                 <label class="" for="piezas">uVenta</label>
                 <input type="text" class="form-control mb-2" id="piezas" placeholder="uVenta" v-model="mpiezas" @keyup.enter="enterInput('add')" @keyup.esc="escape()" @keyup.right="moveInput('add')" @keyup.left="moveInput('cajas')">
             </div>
-            <div class="col-lg">
+            <div class="col-lg-1">
                 <button type="button" class="btn btn-primary mb-2 btnadd" id="add" @click="insertData()" @keyup.esc="escape()" @keyup.right="moveInput('codigo')" @keyup.left="moveInput('piezas')">+</button>
                 <button type="button" class="btn btn-primary mb-2 btnclean" @click="cleanCamps()">-</button>
             </div>
