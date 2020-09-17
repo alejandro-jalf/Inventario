@@ -39,8 +39,11 @@ var app = new Vue({
         enterInput: function(idNext) {
             $(`#${idNext}`).focus();
             if (idNext === "cajas" || idNext === "piezas") {
-                if (idNext === "cajas") {this.mcajas = "0.00";} else {this.mpiezas = "0.00";}
-                $(`#${idNext}`).val("0.00");
+                const cantidad = ($(`#${idNext}`).val()).trim();
+                if (cantidad === "") {
+                    if (idNext === "cajas") {this.mcajas = "0.00";} else {this.mpiezas = "0.00";}
+                    $(`#${idNext}`).val("0.00");
+                }
                 $(`#${idNext}`).select();
             }
         },
@@ -53,7 +56,17 @@ var app = new Vue({
         },
         insertData: function() {
             if (!this.validaInsert()) {
-                alert("Campo codigo o producto vacio");
+                alert("Campo Articulo o Descripcion vacio");
+                return;
+            }
+            const parsedCajas = parseFloat(this.mcajas);
+            if (isNaN(parsedCajas)) {
+                alert("Inserto caracteres no numericos en uCompra");
+                return;
+            }
+            const parsedPiezas = parseFloat(this.mpiezas);
+            if (isNaN(parsedPiezas)) {
+                alert("Inserto caracteres no numericos en uVenta");
                 return;
             }
             if (this.mcajas.trim() === "") this.mcajas = "0.00";
