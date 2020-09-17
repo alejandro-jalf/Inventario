@@ -4,11 +4,12 @@ var app = new Vue({
         rowSelect: -1,
         consecutivo: 0,
         mcodigo: "",
-        mdescription: "",
+        mdescription: "algo",
         mcajas: "",
         mpiezas: "",
         registers: [
             {consecutivo: 0, codigo: 213213, description: "ewr", cajas: 23, piezas: "0.00"},
+            {consecutivo: 1, codigo: 213213, description: "ewr", cajas: 23, piezas: "0.00"},
             {consecutivo: 2, codigo: 213213, description: "ewr", cajas: 23, piezas: "0.00"},
             {consecutivo: 3, codigo: 213213, description: "ewr", cajas: 23, piezas: "0.00"},
             {consecutivo: 4, codigo: 213213, description: "ewr", cajas: 23, piezas: "0.00"},

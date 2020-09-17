@@ -3,7 +3,12 @@ body{
 }
 
 footer{
-    z-index: 3;
+    z-index: 6;
+}
+
+.first{
+    padding: 10px;
+    border: 1px solid #c7c7c7;
 }
 
 .selected{
@@ -16,6 +21,7 @@ table tbody tr{
 
 .container-table{
     overflow: auto;
+    height: 390px;
 }
 
 .container-table table{

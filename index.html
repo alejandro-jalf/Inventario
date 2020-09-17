@@ -10,45 +10,94 @@
 </head>
 <body>
     
-    <header class="mb-5">
+    <header class="mb-2">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="navbar-brand">Inventarios fisicos</div>
         </nav>
     </header>
 
     <div class="container" id="app">
-        <div class="form-row align-items-center">
-            <div class="col-auto">
-                <label class="sr-only" for="codigo">Codigo de barras</label>
-                <input type="text" class="form-control mb-2" id="codigo" placeholder="Codigo de barras" v-model="mcodigo" @keyup.enter="enterInput('name')" @keyup.esc="escape()" @keyup.right="moveInput('cajas')" @keyup.left="moveInput('add')">
+        <div class="first mb-3">
+            <div class="row">
+                <div class="col-auto">
+                    <label class="">Folio</label>
+                    <input type="text" class="form-control mb-2" id="Folio" placeholder="Folio" @keyup.enter="">
+                </div>
+                <div class="col-md">
+                    <label class="" for="Almacen">Almacen</label>
+                    <input type="text" class="form-control mutted mb-2" id="Almacen" placeholder="Almacen">
+                </div>
             </div>
-            <div class="col-auto">
-                <label class="sr-only" for="name">Nombre</label>
-                <input type="text" class="form-control mutted mb-2" id="name" placeholder="Producto" v-model="mdescription"  @keyup.enter="enterInput('cajas')">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="row">
+                        <div class="col">
+                            <label class="sr-only" for="Caja">Caja</label>
+                            <input type="text" class="form-control mb-2" id="Caja" placeholder="Caja">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label class="sr-only" for="Cajero">Cajero</label>
+                            <input type="text" class="form-control mb-2" id="Cajero" placeholder="Cajero">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label class="sr-only" for="Informacion">Informacion</label>
+                    <input type="text" class="form-control mutted mb-2" id="Informacion" placeholder="Informacion">
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-sm">
+                            <label class="" for="Compra">Compra</label>
+                            <input type="text" class="form-control mb-2" id="Compra" placeholder="Compra">
+                        </div>
+                        <div class="col-sm">
+                            <label class="" for="Venta">Venta</label>
+                            <input type="text" class="form-control mb-2" id="Venta" placeholder="Venta">
+                        </div>
+                        <div class="col-sm">
+                            <label class="" for="Existencia">Existencia</label>
+                            <input type="text" class="form-control mb-2" id="Existencia" placeholder="Existencia">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-auto">
-                <label class="sr-only" for="cajas">Cajas</label>
-                <input type="text" class="form-control mb-2" id="cajas" placeholder="Cajas" v-model="mcajas" @keyup.enter="enterInput('piezas')" @keyup.esc="escape()" @keyup.right="moveInput('piezas')" @keyup.left="moveInput('codigo')">
+        </div>
+
+        <div class="form-row align-items-center first">
+            <div class="col-lg">
+                <label class="" for="codigo">Articulo</label>
+                <input type="text" class="form-control mb-2" id="codigo" placeholder="Articulo" v-model="mcodigo" @keyup.enter="enterInput('cajas')" @keyup.esc="escape()" @keyup.right="moveInput('cajas')" @keyup.left="moveInput('add')">
             </div>
-            <div class="col-auto">
-                <label class="sr-only" for="piezas">Piezas</label>
-                <input type="text" class="form-control mb-2" id="piezas" placeholder="Piezas" v-model="mpiezas" @keyup.enter="enterInput('add')" @keyup.esc="escape()" @keyup.right="moveInput('add')" @keyup.left="moveInput('cajas')">
+            <div class="col-lg">
+                <label class="" for="name">Descripcion</label>
+                <input type="text" class="form-control mutted mb-2" id="name" placeholder="Descripcion" v-model="mdescription"  @keyup.enter="enterInput('cajas')" disabled>
             </div>
-            <div class="col-auto">
+            <div class="col-lg">
+                <label class="" for="cajas">uCompra</label>
+                <input type="text" class="form-control mb-2" id="cajas" placeholder="uCompra" v-model="mcajas" @keyup.enter="enterInput('piezas')" @keyup.esc="escape()" @keyup.right="moveInput('piezas')" @keyup.left="moveInput('codigo')">
+            </div>
+            <div class="col-lg">
+                <label class="" for="piezas">uVenta</label>
+                <input type="text" class="form-control mb-2" id="piezas" placeholder="uVenta" v-model="mpiezas" @keyup.enter="enterInput('add')" @keyup.esc="escape()" @keyup.right="moveInput('add')" @keyup.left="moveInput('cajas')">
+            </div>
+            <div class="col-lg">
                 <button type="button" class="btn btn-primary mb-2 btnadd" id="add" @click="insertData()" @keyup.esc="escape()" @keyup.right="moveInput('codigo')" @keyup.left="moveInput('piezas')">+</button>
                 <button type="button" class="btn btn-primary mb-2 btnclean" @click="cleanCamps()">-</button>
             </div>
         </div>
 
-        <div class="container-table">
-            <table class="table table-light mt-5">
+        <div class="container-table mt-5">
+            <table class="table table-light">
                 <thead class="thead-dark">
                     <tr>
                         <th width="50px">#</th>
                         <th>Codigo</th>
                         <th>Descripcion</th>
-                        <th>Cajas</th>
-                        <th>Piezas</th>
+                        <th>uCompra</th>
+                        <th>uVenta</th>
                     </tr>
                 </thead>
                 <tbody>
