@@ -1,0 +1,7 @@
+.selected{
+    background: #d4dadd;
+}
+
+table tbody tr{
+    cursor: pointer;
+}

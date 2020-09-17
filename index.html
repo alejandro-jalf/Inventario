@@ -10,7 +10,74 @@
 </head>
 <body>
     
-    
+    <header class="mb-5">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="navbar-brand">Inventarios fisicos</div>
+        </nav>
+    </header>
+
+    <div class="container" id="app">
+        <div class="form-row align-items-center">
+            <div class="col-auto">
+                <label class="sr-only" for="codigo">Codigo de barras</label>
+                <input type="text" class="form-control mb-2" id="codigo" placeholder="Codigo de barras" v-model="mcodigo" @keyup.enter="enterInput('name')" @keyup.esc="escape()">
+            </div>
+            <div class="col-auto">
+                <label class="sr-only" for="name">Nombre</label>
+                <input type="text" class="form-control mutted mb-2" id="name" placeholder="Producto" v-model="mdescription"  @keyup.enter="enterInput('cajas')">
+            </div>
+            <div class="col-auto">
+                <label class="sr-only" for="cajas">Cajas</label>
+                <input type="text" class="form-control mb-2" id="cajas" placeholder="Cajas" v-model="mcajas" @keyup.enter="enterInput('piezas')" @keyup.esc="escape()">
+            </div>
+            <div class="col-auto">
+                <label class="sr-only" for="piezas">Piezas</label>
+                <input type="text" class="form-control mb-2" id="piezas" placeholder="Piezas" v-model="mpiezas" @keyup.enter="enterInput('add')" @keyup.esc="escape()">
+            </div>
+            <div class="col-auto">
+                <button type="button" class="btn btn-primary mb-2" id="add" @click="insertData()">+</button>
+                <button type="button" class="btn btn-primary mb-2" @click="cleanCamps()">-</button>
+            </div>
+        </div>
+
+        <table class="table table-light mt-5">
+            <thead class="thead-dark">
+                <tr>
+                    <th width="100px">Consecutivo</th>
+                    <th>Codigo</th>
+                    <th>Descripcion</th>
+                    <th>Cajas</th>
+                    <th>Piezas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="register in registers" :key="0" v-bind:class="{'selected': rowSelect === 0 }" @click="setSelectedRow(0)">
+                    <td>0</td>
+                    <td>7127172712</td>
+                    <td>Sabritas</td>
+                    <td>0</td>
+                    <td>56</td>
+                </tr>
+                <!-- <tr :key="1" v-bind:class="{'selected': rowSelect === 1 }" @click="setSelectedRow(1)">
+                    <td>0</td>
+                    <td>7127172712</td>
+                    <td>Sabritas</td>
+                    <td>0</td>
+                    <td>56</td>
+                </tr>
+                <tr :key="2" v-bind:class="{'selected': rowSelect === 2 }" @click="setSelectedRow(2)">
+                    <td>0</td>
+                    <td>7127172712</td>
+                    <td>Sabritas</td>
+                    <td>0</td>
+                    <td>56</td>
+                </tr> -->
+            </tbody>
+            <tfoot>
+                
+            </tfoot>
+        </table>
+    </div>
     
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
